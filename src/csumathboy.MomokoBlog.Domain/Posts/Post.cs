@@ -43,10 +43,10 @@ public class Post : FullAuditedAggregateRoot<Guid>
     {
         Title = Check.NotNullOrWhiteSpace(title, nameof(title), PostConsts.MaxTitleLength);
         ClassId = classId;
-        Author = author;
-        Description = Check.Length(description, nameof(description), PostConsts.MaxTitleLength);
+        Author = Check.NotNullOrWhiteSpace(author, nameof(author), PostConsts.MaxAuthorLength);
+        Description = Check.Length(description, nameof(description), PostConsts.MaxDescriptionLength);
         ContextValue = contextValue;
-        Picture = picture;
+        Picture = Check.Length(picture, nameof(picture), PostConsts.MaxImageUrlLength);
         Sort = sort;
         IsTop = isTop;
         PostsStatus = postsStatus;
@@ -111,7 +111,7 @@ public class Post : FullAuditedAggregateRoot<Guid>
 
     public void UpdateAuthor(string newAuthor)
     {
-        Author = newAuthor;
+        Author = Check.NotNullOrWhiteSpace(newAuthor, nameof(newAuthor), PostConsts.MaxAuthorLength);
     }
 
     public void UpdateDescription(string newDescription)
@@ -126,7 +126,7 @@ public class Post : FullAuditedAggregateRoot<Guid>
 
     public void UpdatePicture(string newPicture)
     {
-        Picture = newPicture;
+        Picture = Check.Length(newPicture, nameof(newPicture), PostConsts.MaxImageUrlLength); ;
     }
 
     public void UpdateSort(int newSort)

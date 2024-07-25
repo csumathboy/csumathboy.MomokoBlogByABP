@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using csumathboy.MomokoBlog.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using csumathboy.MomokoBlog.EntityFrameworkCore;
 namespace csumathboy.MomokoBlog.Migrations
 {
     [DbContext(typeof(MomokoBlogDbContext))]
-    partial class MomokoBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240725015107_Post")]
+    partial class Post
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
