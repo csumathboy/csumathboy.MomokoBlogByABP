@@ -9,7 +9,7 @@ namespace csumathboy.MomokoBlog.Posts
     public class CreatePostDto
     {
         [Required]
-        [StringLength(PostConsts.MaxNameLength)]
+        [StringLength(PostConsts.MaxTitleLength)]
         public string Name { get; set; }
 
         [Required]
