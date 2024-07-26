@@ -1,23 +1,21 @@
-﻿using csumathboy.MomokoBlog.Posts;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Collections.ObjectModel;
+using Volo.Abp.Auditing;
 
 namespace csumathboy.MomokoBlog.Posts
 {
-    public class UpdatePostDto
+    public class PostWithDetails : IHasCreationTime
     {
-        [Required]
-        [StringLength(PostConsts.MaxTitleLength)]
+        public Guid Id { get; set; }
+
         public string Title { get; set; } = default!;
-        [Required]
-        [StringLength(PostConsts.MaxAuthorLength)]
+
         public string Author { get; set; } = default!;
 
         public string? Description { get; set; }
 
-        public Guid ClassId { get; set; }
+        public string ClassName { get; set; } = default!;
 
         public string ContextValue { get; set; } = default!;
 
@@ -26,9 +24,11 @@ namespace csumathboy.MomokoBlog.Posts
         public int Sort { get; set; } = 0;
 
         public bool IsTop { get; set; } = false;
-
+ 
         public PostStatus PostsStatus { get; set; }
 
         public string[] PostTagNames { get; set; } = default!;
+
+        public DateTime CreationTime { get; set; }
     }
 }

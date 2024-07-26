@@ -7,10 +7,8 @@ namespace csumathboy.MomokoBlog.Tags
 {
     public class TagDto : EntityDto<Guid>
     {
-        public string Name { get; set; }
-
-        public DateTime BirthDate { get; set; }
-
-        public string ShortBio { get; set; }
+        public string Name { get; set; } = default!;
+        public string? NickName { get; set; }
+        public int ArtCount { get; set; }
     }
 }

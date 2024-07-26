@@ -10,11 +10,8 @@ namespace csumathboy.MomokoBlog.Tags
     {
         [Required]
         [StringLength(TagConsts.MaxNameLength)]
-        public string Name { get; set; }
-
-        [Required]
-        public DateTime BirthDate { get; set; }
-
-        public string ShortBio { get; set; }
+        public string Name { get; set; } = default!;
+        public string? NickName { get; set; }
+        public int ArtCount { get; set; }
     }
 }

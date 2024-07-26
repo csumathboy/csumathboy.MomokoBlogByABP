@@ -10,11 +10,26 @@ namespace csumathboy.MomokoBlog.Posts
     {
         [Required]
         [StringLength(PostConsts.MaxTitleLength)]
-        public string Name { get; set; }
-
+        public string Title { get; set; } = default!;
         [Required]
-        public DateTime BirthDate { get; set; }
+        [StringLength(PostConsts.MaxAuthorLength)]
+        public string Author { get; set; } = default!;
 
-        public string ShortBio { get; set; }
+        public string? Description { get; set; }
+
+        public Guid ClassId { get; set; }
+
+        public string ContextValue { get; set; } = default!;
+
+        public string? Picture { get; set; }
+
+        public int Sort { get; set; } = 0;
+
+        public bool IsTop { get; set; } = false;
+
+        public PostStatus PostsStatus { get; set; }
+
+        public string[] PostTagNames { get; set; } = default!;
+
     }
 }

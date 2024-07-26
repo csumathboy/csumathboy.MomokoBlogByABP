@@ -1,8 +1,4 @@
-﻿using csumathboy.MomokoBlog.Classifications;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace csumathboy.MomokoBlog.Classifications
 {
@@ -10,11 +6,10 @@ namespace csumathboy.MomokoBlog.Classifications
     {
         [Required]
         [StringLength(ClassificationConsts.MaxNameLength)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
-        [Required]
-        public DateTime BirthDate { get; set; }
-
-        public string ShortBio { get; set; }
+        public string? Description { get; set; }
+        public string? NickName { get; set; }
+        public int ArtCount { get; set; }
     }
 }

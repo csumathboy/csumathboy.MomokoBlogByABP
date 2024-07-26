@@ -10,11 +10,11 @@ namespace csumathboy.MomokoBlog.Comments
     {
         [Required]
         [StringLength(CommentConsts.MaxNameLength)]
-        public string Name { get; set; }
-
-        [Required]
-        public DateTime BirthDate { get; set; }
-
-        public string ShortBio { get; set; }
+        public string Title { get; set; } = default!;
+        public Guid PostsId { get; set; }
+        public string Description { get; set; } = default!;
+        public string RealName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string PhoneNumber { get; set; } = default!;
     }
 }

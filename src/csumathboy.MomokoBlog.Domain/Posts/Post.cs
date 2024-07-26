@@ -39,17 +39,38 @@ public class Post : FullAuditedAggregateRoot<Guid>
 
     }
 
-    public Post(string title, Guid classId, string author, string description, string contextValue, string picture, int sort, bool isTop, PostStatus postsStatus)
+    public Post(Guid id, string title, Guid classId, string author, string description, string contextValue, string picture, int sort, bool isTop, PostStatus postsStatus) 
+        : base(id)
     {
-        Title = Check.NotNullOrWhiteSpace(title, nameof(title), PostConsts.MaxTitleLength);
+        SetTitle(title);
         ClassId = classId;
-        Author = Check.NotNullOrWhiteSpace(author, nameof(author), PostConsts.MaxAuthorLength);
-        Description = Check.Length(description, nameof(description), PostConsts.MaxDescriptionLength);
+        SetAuthor( author);
+        SetDescription( description);
         ContextValue = contextValue;
-        Picture = Check.Length(picture, nameof(picture), PostConsts.MaxImageUrlLength);
+        SetPicture( picture);
         Sort = sort;
         IsTop = isTop;
         PostsStatus = postsStatus;
+    }
+
+    public void SetTitle(string title)
+    {
+        Title = Check.NotNullOrWhiteSpace(title, nameof(title), PostConsts.MaxTitleLength);
+    }
+
+    public void SetAuthor(string author)
+    {
+        Author = Check.NotNullOrWhiteSpace(author, nameof(author), PostConsts.MaxAuthorLength);
+    }
+
+    public void SetDescription(string description)
+    {
+        Description = Check.Length(description, nameof(description), PostConsts.MaxDescriptionLength);
+    }
+
+    public void SetPicture(string picture)
+    {
+        Picture = Check.Length(picture, nameof(picture), PostConsts.MaxImageUrlLength);
     }
 
     public void AddPostTag(Guid tagId)

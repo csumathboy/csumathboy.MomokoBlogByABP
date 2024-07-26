@@ -7,10 +7,11 @@ namespace csumathboy.MomokoBlog.Comments
 {
     public class CommentDto : EntityDto<Guid>
     {
-        public string Name { get; set; }
-
-        public DateTime BirthDate { get; set; }
-
-        public string ShortBio { get; set; }
+        public string Title { get; set; } = default!;
+        public Guid PostsId { get; set; }
+        public string Description { get; set; } = default!;
+        public string RealName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string PhoneNumber { get; set; } = default!;
     }
 }
