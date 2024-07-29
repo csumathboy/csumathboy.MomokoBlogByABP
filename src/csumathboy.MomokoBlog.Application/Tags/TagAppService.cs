@@ -1,8 +1,14 @@
-﻿namespace csumathboy.MomokoBlog.Tags;
-public static class TagConsts 
+﻿using System;
+using Volo.Abp.Application.Dtos;
+using Volo.Abp.Application.Services;
+using Volo.Abp.Domain.Repositories;
+
+namespace csumathboy.MomokoBlog.Tags;
+public class TagAppService :
+    CrudAppService<Tag, TagDto, Guid, PagedAndSortedResultRequestDto, CreateTagDto, UpdateTagDto>,
+    ITagAppService
 {
-    public const int MaxNameLength = 1024;
-
-    public const int MaxNickNameLength = 4096;
-
+    public TagAppService(IRepository<Tag, Guid> repository) : base(repository)
+    {
+    }
 }

@@ -1,9 +1,16 @@
-﻿
+﻿using System;
+using Volo.Abp.Application.Dtos;
+using Volo.Abp.Application.Services;
+using Volo.Abp.Domain.Repositories;
+
 namespace csumathboy.MomokoBlog.Comments;
-public static class CommentConsts  
+
+
+public class CommentAppService :
+    CrudAppService<Comment, CommentDto, Guid, PagedAndSortedResultRequestDto, CreateCommentDto, UpdateCommentDto>,
+    ICommentAppService
 {
-    public const int MaxNameLength = 1024;
-
-    public const int MaxDescriptionLength = 4096;
-
+    public CommentAppService(IRepository<Comment, Guid> repository) : base(repository)
+    {
+    }
 }

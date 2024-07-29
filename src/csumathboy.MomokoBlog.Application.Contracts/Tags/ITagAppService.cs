@@ -7,16 +7,9 @@ using Volo.Abp.Application.Services;
 
 namespace csumathboy.MomokoBlog.Tags
 {
-    public interface ITagAppService : IApplicationService
+    public interface ITagAppService :
+        ICrudAppService<TagDto, Guid, PagedAndSortedResultRequestDto, CreateTagDto, UpdateTagDto>
     {
-        Task<TagDto> GetAsync(Guid id);
 
-        Task<PagedResultDto<TagDto>> GetListAsync(GetTagListDto input);
-
-        Task<TagDto> CreateAsync(CreateTagDto input);
-
-        Task UpdateAsync(Guid id, UpdateTagDto input);
-
-        Task DeleteAsync(Guid id);
     }
 }

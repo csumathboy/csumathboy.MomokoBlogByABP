@@ -15,7 +15,7 @@ namespace csumathboy.MomokoBlog.Posts
 
         Task<PagedResultDto<PostDto>> GetListAsync(GetPostListDto input);
 
-        Task<PostDto> CreateAsync(CreatePostDto input);
+        Task CreateAsync(CreatePostDto input);
 
         Task UpdateAsync(Guid id, UpdatePostDto input);
 

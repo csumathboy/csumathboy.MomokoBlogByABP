@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csumathboy.MomokoBlog.Tags;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,16 +8,11 @@ using Volo.Abp.Application.Services;
 
 namespace csumathboy.MomokoBlog.Comments
 {
-    public interface ICommentAppService : IApplicationService
+
+
+    public interface ICommentAppService :
+        ICrudAppService<CommentDto, Guid, PagedAndSortedResultRequestDto, CreateCommentDto, UpdateCommentDto>
     {
-        Task<CommentDto> GetAsync(Guid id);
 
-        Task<PagedResultDto<CommentDto>> GetListAsync(GetCommentListDto input);
-
-        Task<CommentDto> CreateAsync(CreateCommentDto input);
-
-        Task UpdateAsync(Guid id, UpdateCommentDto input);
-
-        Task DeleteAsync(Guid id);
     }
 }
